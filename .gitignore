@@ -5,14 +5,14 @@ backend/node_modules/
 */node_modules/
 
 # Environment Variables
-# .env
-# .env.local
-# .env.development.local
-# .env.test.local
-# .env.production.local
-# frontend/.env
-# backend/.env
-# */.env
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+frontend/.env
+backend/.env
+*/.env
 
 # Build Output
 dist/
