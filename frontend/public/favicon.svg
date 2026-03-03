@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A4D2E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2D5A3F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="16" fill="url(#bgGradient)"/>
+  
+  <!-- Truck body -->
+  <rect x="8" y="18" width="12" height="6" fill="#FF6B35" rx="1"/>
+  
+  <!-- Truck cabin -->
+  <rect x="20" y="16" width="6" height="8" fill="#FF6B35" rx="1"/>
+  
+  <!-- Truck wheels -->
+  <circle cx="12" cy="26" r="2" fill="#333"/>
+  <circle cx="22" cy="26" r="2" fill="#333"/>
+  
+  <!-- Wheel highlights -->
+  <circle cx="12" cy="26" r="1" fill="#666"/>
+  <circle cx="22" cy="26" r="1" fill="#666"/>
+  
+  <!-- Truck details -->
+  <rect x="9" y="20" width="10" height="2" fill="#1A4D2E"/>
+  <rect x="21" y="18" width="4" height="4" fill="#1A4D2E"/>
+  
+  <!-- T for TranspoLink -->
+  <text x="16" y="14" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">T</text>
+  
+  <!-- Small accent line -->
+  <line x1="8" y1="17" x2="26" y2="17" stroke="#FF6B35" stroke-width="1"/>
+</svg>

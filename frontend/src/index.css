@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Modern Professional Color Palette */
+    --primary-green: #0F5132;
+    --primary-green-light: #198754;
+    --primary-green-dark: #0A3622;
+    --primary-orange: #FF7F50;
+    --accent-amber: #FFD166;
+    --accent-amber-light: #FFE499;
+    --accent-amber-dark: #FFBF33;
+    --neutral-bg: #F9FAFB;
+    --neutral-bg-dark: #F3F4F6;
+    --neutral-text: #1E293B;
+    --neutral-text-light: #64748B;
+    --neutral-border: #E2E8F0;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px; /* Account for fixed navbar (h-20 = 80px + padding) */
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--neutral-bg);
+    color: var(--neutral-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--neutral-bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary-green);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-green-light);
+  }
+}
+
+@layer components {
+  /* Modern Button Styles with Gradient Hover Effects */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-green to-primary-green-light text-white px-6 py-3 rounded-lg font-medium hover:from-primary-green-light hover:to-primary-green shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-gradient-to-r from-accent-amber to-accent-amber-light text-neutral-text px-6 py-3 rounded-lg font-medium hover:from-accent-amber-light hover:to-accent-amber shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent-amber focus:ring-offset-2;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary-green text-primary-green px-6 py-3 rounded-lg font-medium hover:bg-primary-green hover:text-white shadow-sm hover:shadow-md transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-offset-2;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-soft hover:shadow-soft-lg transition-all duration-300 p-6 border border-neutral-border/50;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-neutral-border rounded-lg focus:ring-2 focus:ring-primary-green focus:border-primary-green transition-all duration-200 bg-white;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, #0F5132 0%, #198754 100%);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, #0F5132 0%, #FFD166 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Fade-in animation for sections */
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Auth component specific styles */
+  .auth-tab-button {
+    @apply w-1/2 py-4 px-6 rounded-lg text-sm font-semibold transition-all duration-200;
+  }
+  
+  .auth-tab-button.active {
+    @apply bg-primary-green text-white shadow-md;
+  }
+  
+  .auth-tab-button.inactive {
+    @apply text-gray-700 hover:text-gray-900 hover:bg-gray-50;
+  }
+  
+  /* Ensure buttons are visible */
+  .auth-container {
+    @apply bg-white rounded-xl shadow-lg p-1 flex border border-gray-200;
+  }
+  
+  .auth-content {
+    @apply bg-white rounded-xl shadow-lg p-4 border border-gray-200;
+  }
+} 
