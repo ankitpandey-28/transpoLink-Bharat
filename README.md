@@ -1,16 +1,12 @@
 # TranspoLink Bharat
 
-TranspoLink Bharat is a full-stack logistics platform that connects truck drivers/owners with businesses that need to move goods. It lets users post and browse available trucks and available goods, manage bookings, and use the UI in English/Hindi.
+TranspoLink Bharat is a full-stack logistics platform that connects truck drivers/owners with businesses that need to move goods.
+It lets users post and browse available trucks and available goods, manage bookings, and use the UI in English/Hindi.
 
 ## What this application does
 
-- For businesses (clients)
-  - Post goods/cargo requirements (origin, destination, details)
-  - Browse available trucks and create bookings / coordinate transport
-
-- For drivers/owners
-  - Post truck availability (vehicle details, capacity, route/availability)
-  - Browse available goods and accept/coordinate bookings
+- For businesses (clients): post goods/cargo requirements, browse available trucks, create bookings.
+- For drivers/owners: post truck availability, browse available goods, accept/coordinate bookings.
 
 ## Key features
 
@@ -26,85 +22,46 @@ TranspoLink Bharat is a full-stack logistics platform that connects truck driver
 
 ## Project structure
 
-`
-TranspoLink-main/
-├── frontend/   # React app (UI)
-├── backend/    # Express API + MongoDB models
-└── docs/       # Additional documentation
-`
+- frontend/  (React app UI)
+- backend/   (Express API + MongoDB models)
+- docs/      (documentation)
 
 ## Run locally
 
-### Prerequisites
+Prerequisites: Node.js (LTS recommended), MongoDB (local) or MongoDB Atlas.
 
-- Node.js (recommended: LTS)
-- MongoDB (local service) or MongoDB Atlas
+Backend:
+1) cd backend
+2) npm install
+3) copy .env.example .env
+4) Set MONGODB_URI=mongodb://localhost:27017/transpolink-bharat in backend/.env
+5) npm run dev
 
-### 1) Backend
+Frontend:
+1) cd frontend
+2) npm install
+3) npm start
 
-`ash
-cd backend
-npm install
-`
-
-Create backend/.env:
-
-`ash
-copy .env.example .env
-`
-
-Set MONGODB_URI in backend/.env:
-
-`env
-MONGODB_URI=mongodb://localhost:27017/transpolink-bharat
-`
-
-Start the API:
-
-`ash
-npm run dev
-`
-
-Backend runs at http://localhost:5000
-Health check: http://localhost:5000/api/health
-
-### 2) Frontend
-
-`ash
-cd frontend
-npm install
-npm start
-`
-
-Frontend runs at http://localhost:3000.
-
-### Frontend API base URL
-
-The frontend uses REACT_APP_API_URL (example: http://localhost:5000/api).
-If you do not set it, it defaults to http://localhost:5000/api.
+Frontend API base URL:
+- Uses REACT_APP_API_URL (example: http://localhost:5000/api).
+- If not set, defaults to http://localhost:5000/api.
 
 ## API (high level)
 
-- Health: GET /api/health
-- Auth: POST /api/auth/register, POST /api/auth/login, GET /api/auth/me
-- Goods: GET/POST /api/goods, GET/PUT/DELETE /api/goods/:id
-- Trucks: GET/POST /api/trucks, GET/PUT/DELETE /api/trucks/:id
-- Bookings: routes under /api/bookings (see backend/src/routes/bookings.js)
+- GET /api/health
+- POST /api/auth/register, POST /api/auth/login, GET /api/auth/me
+- Goods: /api/goods
+- Trucks: /api/trucks
+- Bookings: /api/bookings (see backend/src/routes/bookings.js)
 
 ## Common issues
 
-- Login shows Invalid credentials
-  - Your local MongoDB is a fresh database; use Sign up first to create a user locally.
-
-- Backend crashes with MongoDB ECONNREFUSED 127.0.0.1:27017
-  - MongoDB is not running locally. Start the MongoDB service (or use Atlas and update MONGODB_URI).
+- Invalid credentials: your local MongoDB is a fresh database; sign up first.
+- MongoDB ECONNREFUSED 127.0.0.1:27017: MongoDB is not running locally.
 
 ## Environment files
 
-.env files are intentionally not committed to Git (security). Use:
-
-- backend/.env.example
-- frontend/.env.example (if present)
+.env files are not committed to Git. Use backend/.env.example and frontend/.env.example.
 
 ## More docs
 
